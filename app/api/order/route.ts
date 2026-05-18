@@ -3,12 +3,31 @@ import { appendOrderToSheet } from "@/lib/googleSheets";
 import { sendOrderEmails } from "@/lib/email";
 import { createOrderRecord, validateOrderPayload, type OrderPayload } from "@/lib/order";
 
+function normalizeOrigin(value?: string | null) {
+  if (!value) return "";
+  return value.trim().replace(/\/$/, "");
+}
+
+function getAllowedOrigins() {
+  const origins = [
+    process.env.FRONTEND_URL,
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : ""
+  ];
+
+  if (process.env.FRONTEND_URLS) {
+    origins.push(...process.env.FRONTEND_URLS.split(","));
+  }
+
+  return new Set(origins.map(normalizeOrigin).filter(Boolean));
+}
+
 export async function POST(request: Request) {
   try {
-    const frontendUrl = process.env.FRONTEND_URL;
-    const origin = request.headers.get("origin");
+    const origin = normalizeOrigin(request.headers.get("origin"));
+    const allowedOrigins = getAllowedOrigins();
 
-    if (frontendUrl && origin && origin !== frontendUrl) {
+    if (allowedOrigins.size > 0 && origin && !allowedOrigins.has(origin)) {
       return NextResponse.json({ success: false, message: "Request origin is not allowed." }, { status: 403 });
     }
 
