@@ -88,9 +88,16 @@ export async function POST(request: Request) {
     const order = createOrderRecord(payload);
 
     await appendOrderToSheet(order);
-    await sendOrderEmails(order);
 
-    return NextResponse.json({ success: true, orderId: order.orderId });
+    let emailNotificationSent = true;
+    try {
+      await sendOrderEmails(order);
+    } catch (emailError) {
+      emailNotificationSent = false;
+      console.error("Order was saved, but email notification failed", emailError);
+    }
+
+    return NextResponse.json({ success: true, orderId: order.orderId, emailNotificationSent });
   } catch (error) {
     console.error("Order submission failed", error);
     const message = error instanceof Error ? error.message : "Order submission failed.";
