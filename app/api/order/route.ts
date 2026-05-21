@@ -8,6 +8,22 @@ function normalizeOrigin(value?: string | null) {
   return value.trim().replace(/\/$/, "");
 }
 
+function isPlaceholderOrigin(origin: string) {
+  return origin.includes("your-live-domain.com") || origin.includes("your-vercel-domain.vercel.app");
+}
+
+function getRequestOrigin(request: Request) {
+  const requestUrlOrigin = normalizeOrigin(new URL(request.url).origin);
+  const forwardedHost = request.headers.get("x-forwarded-host");
+  const forwardedProto = request.headers.get("x-forwarded-proto") || "https";
+
+  if (forwardedHost) {
+    return normalizeOrigin(`${forwardedProto}://${forwardedHost}`);
+  }
+
+  return requestUrlOrigin;
+}
+
 function getAllowedOrigins() {
   const origins = [
     process.env.FRONTEND_URL,
@@ -19,15 +35,20 @@ function getAllowedOrigins() {
     origins.push(...process.env.FRONTEND_URLS.split(","));
   }
 
-  return new Set(origins.map(normalizeOrigin).filter(Boolean));
+  return new Set(
+    origins
+      .map(normalizeOrigin)
+      .filter((origin) => origin && !isPlaceholderOrigin(origin))
+  );
 }
 
 export async function POST(request: Request) {
   try {
     const origin = normalizeOrigin(request.headers.get("origin"));
+    const requestOrigin = getRequestOrigin(request);
     const allowedOrigins = getAllowedOrigins();
 
-    if (allowedOrigins.size > 0 && origin && !allowedOrigins.has(origin)) {
+    if (origin && origin !== requestOrigin && allowedOrigins.size > 0 && !allowedOrigins.has(origin)) {
       return NextResponse.json({ success: false, message: "Request origin is not allowed." }, { status: 403 });
     }
 
