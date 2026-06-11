@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">Skin and hair bundle placeholder</title>
+  <desc id="desc">A curated bundle of skincare and haircare products.</desc>
+  <rect width="720" height="720" fill="#fffaf8"/>
+  <circle cx="512" cy="158" r="94" fill="#e7eadf"/>
+  <circle cx="178" cy="548" r="110" fill="#f3d8d1"/>
+  <rect x="158" y="176" width="122" height="328" rx="24" fill="#fffefe" stroke="#b76e79" stroke-width="5"/>
+  <rect x="182" y="124" width="74" height="68" rx="16" fill="#c5917b"/>
+  <rect x="306" y="126" width="148" height="390" rx="32" fill="#f8d7db" stroke="#8f4654" stroke-width="5"/>
+  <rect x="328" y="82" width="104" height="64" rx="18" fill="#697c67"/>
+  <rect x="476" y="260" width="124" height="252" rx="28" fill="#fffefe" stroke="#c5917b" stroke-width="5"/>
+  <rect x="470" y="220" width="136" height="52" rx="18" fill="#b76e79"/>
+  <path d="M180 560h420" stroke="#d4a492" stroke-width="26" stroke-linecap="round" opacity=".45"/>
+</svg>

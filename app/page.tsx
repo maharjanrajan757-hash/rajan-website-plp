@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+import { LandingPage } from "@/components/landing-page";
+
+export default function Home() {
+  return <LandingPage />;
+=======
 "use client";
 
 import Image from "next/image";
@@ -410,4 +416,5 @@ export default function Home() {
       </section>
     </main>
   );
+>>>>>>> 24279f0c85be6566a992323a272dae8f0650c14a
 }

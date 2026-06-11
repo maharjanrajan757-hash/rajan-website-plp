@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Premium skincare and haircare landing page</title>
+  <desc id="desc">Open Graph placeholder for a premium beauty e-commerce website.</desc>
+  <rect width="1200" height="630" fill="#fff7f3"/>
+  <circle cx="1010" cy="126" r="148" fill="#f3d3d7"/>
+  <circle cx="122" cy="540" r="120" fill="#e7eadf"/>
+  <text x="96" y="238" font-family="Georgia, serif" font-size="74" fill="#2d2a2b">Skin &amp; Hair</text>
+  <text x="96" y="318" font-family="Georgia, serif" font-size="74" fill="#8f4654">Confidence System</text>
+  <text x="100" y="392" font-family="Arial, sans-serif" font-size="30" fill="#584a4d">Premium skincare and haircare products</text>
+  <rect x="780" y="172" width="118" height="280" rx="24" fill="#fffefe" stroke="#b76e79" stroke-width="5"/>
+  <rect x="804" y="124" width="70" height="64" rx="16" fill="#c5917b"/>
+  <rect x="930" y="218" width="126" height="236" rx="28" fill="#f5cdd2" stroke="#8f4654" stroke-width="5"/>
+  <rect x="924" y="180" width="138" height="50" rx="18" fill="#697c67"/>
+</svg>

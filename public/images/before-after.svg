@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" role="img" aria-labelledby="title desc">
+  <title id="title">Before and after placeholder</title>
+  <desc id="desc">Two framed areas reserved for real customer before and after images.</desc>
+  <rect width="920" height="560" fill="#fffaf8"/>
+  <rect x="48" y="56" width="396" height="448" rx="8" fill="#f4ded8" stroke="#d7afa4" stroke-width="4"/>
+  <rect x="476" y="56" width="396" height="448" rx="8" fill="#e8eadf" stroke="#bdc9b7" stroke-width="4"/>
+  <circle cx="246" cy="222" r="74" fill="#fffefe"/>
+  <circle cx="674" cy="222" r="74" fill="#fffefe"/>
+  <path d="M152 392c54-62 126-92 216-92 64 2 110 18 138 48" fill="none" stroke="#b76e79" stroke-width="12" stroke-linecap="round"/>
+  <path d="M582 392c52-64 124-96 216-96 66 0 111 17 136 50" fill="none" stroke="#697c67" stroke-width="12" stroke-linecap="round"/>
+  <path d="M438 278h44" stroke="#8f4654" stroke-width="12" stroke-linecap="round"/>
+</svg>
