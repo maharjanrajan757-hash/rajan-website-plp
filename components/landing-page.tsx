@@ -72,15 +72,6 @@ const products = [
     detailHref: "/products/haircare"
   },
   {
-    name: "Skin & Hair Bundle",
-    image: "/images/product-bundle.png",
-    alt: "Curated skincare and haircare bundle placeholder",
-    description:
-      "A complete starter set for women who want a guided beauty routine.",
-    price: "Bundle coming soon",
-    detailHref: "#products"
-  },
-  {
     name: "Routine Guide",
     image: "/images/Routine Guide image 1.png",
     alt: "30-Day Hair Growth Blueprint routine guide preview",
@@ -146,9 +137,19 @@ const stats = [
 ];
 
 const testimonials = [
-  "My skin looks healthier and more refreshed than it has in years.",
-  "I've tried many products before, but this routine finally helped me stay consistent.",
-  "My hair feels stronger and looks so much healthier."
+  {
+    quote: "My skin looks healthier and more refreshed than it has in years.",
+    name: "Sita Sharma"
+  },
+  {
+    quote:
+      "I've tried many products before, but this routine finally helped me stay consistent.",
+    name: "Anita Karki"
+  },
+  {
+    quote: "My hair feels stronger and looks so much healthier.",
+    name: "Maya Gurung"
+  }
 ];
 
 const objections = [
@@ -488,9 +489,9 @@ function ProductsSection() {
         <SectionHeader
           eyebrow="Shop the routine"
           title="Products Designed Around Your Daily Beauty Goals"
-          copy="Choose a single category or start with the complete skin and hair bundle."
+          copy="Choose skincare or haircare products, or unlock the complete routine guide."
         />
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-3">
           {products.map((product) => {
             const isRoutineGuide = product.name === "Routine Guide";
 
@@ -673,9 +674,9 @@ function TestimonialsSection() {
       <div className="section-shell">
         <SectionHeader title="What Our Customers Are Saying" />
         <div className="grid gap-5 md:grid-cols-3">
-          {testimonials.map((quote) => (
+          {testimonials.map((testimonial) => (
             <figure
-              key={quote}
+              key={testimonial.name}
               className="rounded-lg border border-[var(--line)] bg-[var(--navy)] p-7 soft-shadow"
             >
               <div className="mb-5 flex gap-1 text-[var(--pink)]" aria-label="Five star rating">
@@ -684,17 +685,14 @@ function TestimonialsSection() {
                 ))}
               </div>
               <blockquote className="font-display text-2xl leading-9 text-[var(--ink)]">
-                &quot;{quote}&quot;
+                &quot;{testimonial.quote}&quot;
               </blockquote>
               <figcaption className="mt-5 text-xs font-bold uppercase tracking-[0.12em] text-[var(--pink)]">
-                - Customer Name
+                - {testimonial.name}
               </figcaption>
             </figure>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm font-medium text-[var(--muted)]">
-          Replace these with real customer reviews and before/after photos.
-        </p>
       </div>
     </section>
   );
