@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/images/Favicon-gcn-removebg-preview.png",
+        url: "/images/Fav_Icon-removebg-preview.png",
         type: "image/png"
       }
     ],
-    shortcut: "/images/Favicon-gcn-removebg-preview.png",
-    apple: "/images/Favicon-gcn-removebg-preview.png"
+    shortcut: "/images/Fav_Icon-removebg-preview.png",
+    apple: "/images/Fav_Icon-removebg-preview.png"
   },
   openGraph: {
     title: "Premium Skincare & Haircare Products for Confident Women",

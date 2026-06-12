@@ -44,12 +44,12 @@ export default async function ProductCategoryPage({ params }: ProductPageProps) 
         <div className="section-shell flex min-h-24 items-center justify-between gap-4 py-4">
           <Link href="/#products" className="flex items-center gap-3">
             <Image
-              src="/images/GCN_Logo2-removebg-preview.png"
-              alt="GCN beauty brand logo"
-              width={662}
-              height={298}
+              src="/images/Logo-removebg-preview.png"
+              alt="Supriya Glow Care logo"
+              width={500}
+              height={500}
               priority
-              className="h-22 w-auto object-contain sm:h-24"
+              className="h-28 w-36 object-contain sm:w-40"
             />
           </Link>
           <Link
