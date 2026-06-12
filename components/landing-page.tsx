@@ -11,7 +11,7 @@ import {
   Star,
   WandSparkles
 } from "lucide-react";
-import { whatsappHref } from "@/components/product-data";
+import { businessWhatsappHref, whatsappHref } from "@/components/product-data";
 
 const navItems = [
   ["Home", "#home"],
@@ -185,8 +185,8 @@ const faqs = [
     "Results vary, but consistent use over time gives your routine the best chance to support visible improvement."
   ],
   [
-    "Do you offer bundles?",
-    "Yes. Bundles are available for customers who want a complete skin and hair routine."
+    "Do you offer free delivery?",
+    "Yes, we offer free delivery on orders above NPR 1500."
   ],
   [
     "Can I order through WhatsApp?",
@@ -352,10 +352,13 @@ function Hero() {
             Build a simple skin and hair care routine that supports
             healthier-looking skin, stronger hair, and everyday confidence.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton variant="light">Shop Now</CTAButton>
             <CTAButton href={whatsappHref} variant="secondary">
               Message Us on WhatsApp
+            </CTAButton>
+            <CTAButton href={businessWhatsappHref} variant="secondary">
+              Grow Your Business With Us
             </CTAButton>
           </div>
           <div className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
