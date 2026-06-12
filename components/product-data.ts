@@ -66,7 +66,7 @@ export const productDetails = [
       },
       {
         name: "Leito Hair Care Duo",
-        image: "/images/Remade image Detox.png",
+        image: "/images/Gemini_Generated_Image_dhc7y3dhc7y3dhc7.png",
         alt: "Leito Botox shampoo and hair treatment duo",
         price: "Shampoo: Rs. 1,625 / 800ML | Treatment: Rs. 1,880 / 1100ML",
         description:

@@ -81,14 +81,19 @@ export default async function ProductCategoryPage({ params }: ProductPageProps) 
               key={item.name}
               className="grid overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--navy)] soft-shadow md:grid-cols-[0.92fr_1.08fr]"
             >
-              <div className="bg-[var(--pink-soft)]">
+              <div className="flex min-h-[420px] items-center justify-center bg-[var(--pink-soft)]">
                 <Image
                   src={item.image}
                   alt={item.alt}
                   width={1428}
                   height={2021}
                   loading="eager"
-                  className="h-full min-h-[420px] w-full object-cover object-top"
+                  className={`h-full min-h-[420px] w-full ${
+                    item.image ===
+                    "/images/Gemini_Generated_Image_dhc7y3dhc7y3dhc7.png"
+                      ? "object-contain object-center"
+                      : "object-cover object-top"
+                  }`}
                 />
               </div>
               <div className="flex flex-col p-6 md:p-7">
