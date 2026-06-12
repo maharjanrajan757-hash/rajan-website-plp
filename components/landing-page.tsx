@@ -139,16 +139,22 @@ const stats = [
 const testimonials = [
   {
     quote: "My skin looks healthier and more refreshed than it has in years.",
-    name: "Sita Sharma"
+    name: "Sita Sharma",
+    image: "/images/Sita Sharma.jpeg",
+    imagePosition: "object-[70%_28%]"
   },
   {
     quote:
       "I've tried many products before, but this routine finally helped me stay consistent.",
-    name: "Anita Karki"
+    name: "Anita Karki",
+    image: "/images/Anita Karki.jpeg",
+    imagePosition: "object-[50%_32%]"
   },
   {
     quote: "My hair feels stronger and looks so much healthier.",
-    name: "Maya Gurung"
+    name: "Maya Gurung",
+    image: "/images/Maya Gurung.jpeg",
+    imagePosition: "object-[50%_30%]"
   }
 ];
 
@@ -682,6 +688,14 @@ function TestimonialsSection() {
               key={testimonial.name}
               className="rounded-lg border border-[var(--line)] bg-[var(--navy)] p-7 soft-shadow"
             >
+              <Image
+                src={testimonial.image}
+                alt={`${testimonial.name} customer portrait`}
+                width={900}
+                height={1200}
+                sizes="(min-width: 768px) 30vw, 100vw"
+                className={`mb-5 aspect-[4/3] w-full rounded-md object-cover ${testimonial.imagePosition}`}
+              />
               <div className="mb-5 flex gap-1 text-[var(--pink)]" aria-label="Five star rating">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star key={index} aria-hidden="true" size={18} fill="currentColor" />
