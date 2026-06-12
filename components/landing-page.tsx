@@ -329,14 +329,14 @@ function Hero() {
   return (
     <section className="relative min-h-[720px] border-b border-[var(--line)] bg-[var(--cream)] py-20 text-white md:py-28">
       <Image
-        src="/images/beauty-hero.png"
-        alt="Unbranded premium skincare and haircare products on a blush marble vanity"
-        width={1536}
-        height={1024}
+        src="/images/beauty-products-hero.png"
+        alt="GCN skincare and haircare collection arranged on a blush marble beauty set"
+        width={1920}
+        height={1080}
         priority
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-75"
+        className="absolute inset-0 h-full w-full object-cover object-[72%_center] md:object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#3a2328]/78 via-[#8f4654]/36 to-[#fff5ed]/8" />
+      <div className="absolute inset-0 bg-[#3a2328]/48 md:bg-gradient-to-r md:from-[#3a2328]/58 md:via-[#8f4654]/28 md:to-[#fff5ed]/6" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(243,203,209,0.24),transparent_34%)]" />
       <div className="section-shell relative grid min-h-[560px] items-center">
         <div className="max-w-4xl">
