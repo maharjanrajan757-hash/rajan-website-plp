@@ -65,13 +65,17 @@ export const productDetails = [
         details: ["Rice water strength", "Coconut extract nourishment", "Stronger hair from roots"]
       },
       {
-        name: "Gold Cleansing Milk",
-        image: "/images/haircare-scalp-care.png",
-        alt: "Gold Cleansing Milk product sheet",
-        price: "Rs. 525 / 200ML or Rs. 790 / 400ML",
+        name: "Leito Hair Care Duo",
+        image: "/images/haircare-botox-duo.png",
+        alt: "Leito Botox shampoo and hair treatment duo product sheet",
+        price: "Shampoo: Rs. 1,625 / 800ML | Treatment: Rs. 1,880 / 1100ML",
         description:
-          "A customer-favorite care product also available to add with haircare orders.",
-        details: ["Gentle cleansing", "Daily use", "Dermatologist tested"]
+          "A salon-quality shampoo and treatment duo designed to deeply repair, moisturize, and restore smooth, radiant-looking hair.",
+        details: [
+          "Deep repair and protection",
+          "Intense moisture and shine",
+          "Silky, soft, and smooth"
+        ]
       }
     ]
   }
