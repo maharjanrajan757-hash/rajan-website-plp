@@ -329,8 +329,8 @@ function Hero() {
   return (
     <section className="relative min-h-[720px] border-b border-[var(--line)] bg-[var(--cream)] py-20 text-white md:py-28">
       <Image
-        src="/images/beauty-products-hero.png"
-        alt="GCN skincare and haircare collection arranged on a blush marble beauty set"
+        src="/images/Final  Beauty Hero image.png"
+        alt="GCN skincare and haircare products arranged on a blush marble beauty set"
         width={1920}
         height={1080}
         priority
