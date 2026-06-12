@@ -46,6 +46,32 @@ export const productDetails = [
         description:
           "A full-coverage foundation with primer support for a polished, long-lasting finish.",
         details: ["High definition finish", "Long lasting", "SPF 50 protection"]
+      },
+      {
+        name: "SiwoVong Sheep Placenta Serum",
+        image: "/images/skincare-product-6.png",
+        alt: "SiwoVong Sheep Placenta firming and anti-aging serum capsules",
+        price: "Rs. 1,499 / 30 soft capsules",
+        description:
+          "A nourishing facial serum capsule treatment with protein, amino acids, vitamins, and minerals for a softer, youthful-looking glow.",
+        details: [
+          "Helps brighten and soften skin",
+          "Supports hydration and nourishment",
+          "Helps reduce the look of wrinkles"
+        ]
+      },
+      {
+        name: "Leito Papaya Sunscreen SPF 50+",
+        image: "/images/skincare-product-7.png",
+        alt: "Leito Papaya sunscreen SPF 50 plus product sheet",
+        price: "Rs. 775 / 80gm",
+        description:
+          "An oil-free moisturizing sunscreen cream with papaya and broad UVA/UVB protection for everyday wear.",
+        details: [
+          "SPF 50+ PA+++ protection",
+          "Oil-free moisturizing formula",
+          "Water and sweat resistant"
+        ]
       }
     ]
   },

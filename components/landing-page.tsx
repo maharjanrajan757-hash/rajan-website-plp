@@ -59,7 +59,7 @@ const products = [
     alt: "Gold Cleansing Milk skincare product",
     description:
       "Browse cleansers, sunscreen, gel, and coverage products for daily skin care.",
-    price: "4 products available",
+    price: "6 products available",
     detailHref: "/products/skincare"
   },
   {
