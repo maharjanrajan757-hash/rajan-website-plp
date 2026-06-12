@@ -391,7 +391,7 @@ export function HairGrowthBlueprint() {
             </p>
             <a
               href={whatsappHref}
-              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-xs font-bold uppercase tracking-[0.08em] text-[var(--champagne-dark)] transition hover:bg-[var(--cream)]"
+              className="light-cta mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-7 py-3 text-xs font-bold uppercase tracking-[0.08em] transition"
             >
               Ask on WhatsApp
               <ArrowRight aria-hidden="true" size={16} />
