@@ -87,13 +87,9 @@ export default async function ProductCategoryPage({ params }: ProductPageProps) 
                   alt={item.alt}
                   width={1428}
                   height={2021}
+                  sizes="(min-width: 1024px) 20vw, (min-width: 768px) 46vw, 100vw"
                   loading="eager"
-                  className={`h-full min-h-[420px] w-full ${
-                    item.image ===
-                    "/images/Gemini_Generated_Image_dhc7y3dhc7y3dhc7.png"
-                      ? "object-contain object-center"
-                      : "object-cover object-top"
-                  }`}
+                  className="h-full min-h-[420px] w-full object-contain object-center"
                 />
               </div>
               <div className="flex flex-col p-6 md:p-7">

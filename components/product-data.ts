@@ -48,9 +48,9 @@ export const productDetails = [
         details: ["High definition finish", "Long lasting", "SPF 50 protection"]
       },
       {
-        name: "SiwoVong Sheep Placenta Serum",
+        name: "SiwoNong Sheep Placenta Serum",
         image: "/images/skincare-product-6.png",
-        alt: "SiwoVong Sheep Placenta firming and anti-aging serum capsules",
+        alt: "SiwoNong Sheep Placenta firming and anti-aging serum capsules",
         price: "Rs. 1,499 / 30 soft capsules",
         description:
           "A nourishing facial serum capsule treatment with protein, amino acids, vitamins, and minerals for a softer, youthful-looking glow.",
