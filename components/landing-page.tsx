@@ -358,7 +358,7 @@ function Hero() {
               Message Us on WhatsApp
             </CTAButton>
             <CTAButton href={businessWhatsappHref} variant="secondary">
-              Grow Your Business With Us
+              Become a Retail Partner
             </CTAButton>
           </div>
           <div className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
