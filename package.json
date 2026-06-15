@@ -13,6 +13,7 @@
     "@tailwindcss/postcss": "^4.3.0",
     "lucide-react": "^0.468.0",
     "next": "^16.2.7",
+    "nodemailer": "^9.0.0",
     "pdfjs-dist": "^6.0.227",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "eslint": "^9.17.0",
