@@ -103,16 +103,50 @@ function CheckList({ items }: { items: string[] }) {
 export function HairGrowthBlueprint() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [concern, setConcern] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setIsUnlocked(true);
-    window.requestAnimationFrame(() => {
-      document.getElementById("blueprint-content")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/blueprint-lead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, phone, email, concern })
       });
-    });
+
+      if (!response.ok) {
+        const result = (await response.json().catch(() => null)) as
+          | { error?: string }
+          | null;
+        throw new Error(result?.error || "We could not submit your details.");
+      }
+
+      setIsUnlocked(true);
+      window.requestAnimationFrame(() => {
+        document.getElementById("blueprint-content")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    } catch (error) {
+      console.error("Blueprint form submission failed:", error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "We could not submit your details. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -170,16 +204,30 @@ export function HairGrowthBlueprint() {
                 <input
                   required
                   type="tel"
+                  value={phone}
+                  onChange={(event) => setPhone(event.target.value)}
                   className="min-h-12 rounded-lg border border-[var(--line)] bg-[var(--cream)] px-4 text-base font-normal text-[var(--ink)] outline-none transition focus:border-[var(--champagne)]"
                   placeholder="98XXXXXXXX"
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-semibold text-[var(--ink)]">
+                Email Address
+                <input
+                  required
+                  type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  className="min-h-12 rounded-lg border border-[var(--line)] bg-[var(--cream)] px-4 text-base font-normal text-[var(--ink)] outline-none transition focus:border-[var(--champagne)]"
+                  placeholder="Your email address"
                 />
               </label>
               <label className="grid gap-2 text-sm font-semibold text-[var(--ink)]">
                 Main hair concern
                 <select
                   required
+                  value={concern}
+                  onChange={(event) => setConcern(event.target.value)}
                   className="min-h-12 rounded-lg border border-[var(--line)] bg-[var(--cream)] px-4 text-base font-normal text-[var(--ink)] outline-none transition focus:border-[var(--champagne)]"
-                  defaultValue=""
                 >
                   <option value="" disabled>
                     Choose one
@@ -193,11 +241,21 @@ export function HairGrowthBlueprint() {
               </label>
             </div>
 
+            {submitError ? (
+              <p
+                role="alert"
+                className="mt-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm leading-6 text-red-700"
+              >
+                {submitError}
+              </p>
+            ) : null}
+
             <button
               type="submit"
-              className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--champagne-dark)] px-6 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[var(--champagne)] hover:text-[var(--black)]"
+              disabled={isSubmitting}
+              className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--champagne-dark)] px-6 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[var(--champagne)] hover:text-[var(--black)] disabled:cursor-not-allowed disabled:opacity-65"
             >
-              View Blueprint
+              {isSubmitting ? "Sending..." : "View Blueprint"}
               <ArrowRight aria-hidden="true" size={16} />
             </button>
           </form>
