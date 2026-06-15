@@ -921,11 +921,26 @@ function Footer() {
             Contact
           </h3>
           <div className="mt-4 space-y-3 text-sm text-[var(--muted)]">
-            <p>Email placeholder</p>
-            <p>Phone placeholder</p>
-            <a href={whatsappHref} className="inline-flex items-center gap-2 hover:text-[var(--pink)]">
+            <a
+              href="mailto:info@supriyaglowcare.com"
+              className="block break-words hover:text-[var(--pink)]"
+            >
+              info@supriyaglowcare.com
+            </a>
+            <a
+              href="tel:+9779742488804"
+              className="block hover:text-[var(--pink)]"
+            >
+              +977 974-2488804
+            </a>
+            <a
+              href="https://wa.me/9779742488804"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-[var(--pink)]"
+            >
               <MessageCircle aria-hidden="true" size={16} />
-              WhatsApp placeholder
+              +977 974-2488804
             </a>
           </div>
         </div>
@@ -935,13 +950,20 @@ function Footer() {
           </h3>
           <div className="mt-4 flex flex-wrap gap-3 text-sm text-[var(--muted)]">
             <a href="#" className="hover:text-[var(--pink)]">Instagram</a>
-            <a href="#" className="hover:text-[var(--pink)]">Facebook</a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61589767019138"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--pink)]"
+            >
+              Facebook
+            </a>
             <a href="#" className="hover:text-[var(--pink)]">TikTok</a>
           </div>
         </div>
       </div>
       <p className="section-shell mt-8 text-xs text-[var(--muted)]">
-        Copyright 2026 GCN. All rights reserved.
+        Copyright 2026 SGC. All rights reserved.
       </p>
     </footer>
   );
