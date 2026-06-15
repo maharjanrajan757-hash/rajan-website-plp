@@ -68,6 +68,8 @@ async function sendWithSmtp(
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
   const port = Number(process.env.SMTP_PORT || "465");
+  const secure =
+    process.env.SMTP_SECURE?.toLowerCase() === "true" || port === 465;
 
   if (!host || !user || !pass || !Number.isInteger(port)) {
     return false;
@@ -76,18 +78,25 @@ async function sendWithSmtp(
   const transporter = nodemailer.createTransport({
     host,
     port,
-    secure: port === 465,
+    secure,
     auth: { user, pass },
     connectionTimeout: 10_000,
     greetingTimeout: 10_000,
     socketTimeout: 15_000
   });
 
-  await transporter.sendMail({
+  const result = await transporter.sendMail({
     from,
     to,
     replyTo: lead.email,
     ...content
+  });
+
+  console.info("Blueprint SMTP notification sent.", {
+    messageId: result.messageId,
+    accepted: result.accepted,
+    rejected: result.rejected,
+    recipient: to
   });
 
   return true;
@@ -193,7 +202,20 @@ export async function POST(request: Request) {
         return NextResponse.json({ success: true, provider: "smtp" });
       }
     } catch (error) {
-      console.error("Blueprint SMTP notification failed:", error);
+      const smtpError = error as Error & {
+        code?: string;
+        command?: string;
+        response?: string;
+        responseCode?: number;
+      };
+      console.error("Blueprint SMTP notification failed.", {
+        name: smtpError.name,
+        message: smtpError.message,
+        code: smtpError.code,
+        command: smtpError.command,
+        response: smtpError.response,
+        responseCode: smtpError.responseCode
+      });
     }
 
     try {
