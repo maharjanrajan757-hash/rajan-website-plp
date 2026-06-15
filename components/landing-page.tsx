@@ -208,12 +208,15 @@ const faqs = [
 function CTAButton({
   children,
   href = "#products",
-  variant = "primary"
+  variant = "primary",
+  className = ""
 }: {
   children: React.ReactNode;
   href?: string;
   variant?: "primary" | "secondary" | "light";
+  className?: string;
 }) {
+  const opensNewTab = href.startsWith("http");
   const styles = {
     primary: "be-bold-button",
     secondary:
@@ -225,7 +228,9 @@ function CTAButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center gap-2 ${styles[variant]}`}
+      target={opensNewTab ? "_blank" : undefined}
+      rel={opensNewTab ? "noopener noreferrer" : undefined}
+      className={`inline-flex items-center justify-center gap-2 ${styles[variant]} ${className}`}
     >
       {children}
       <ArrowRight aria-hidden="true" size={16} />
@@ -303,7 +308,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[#fffaf8]/95 backdrop-blur-xl">
       <div className="section-shell flex h-28 items-center justify-between gap-4">
-        <a href="#home" className="flex items-center gap-3" aria-label="Go to home">
+        <a href="#home" className="flex shrink-0 items-center gap-3" aria-label="Go to home">
           <Image
             src="/images/Logo-removebg-preview.png"
             alt="Supriya Glow Care logo"
@@ -323,7 +328,17 @@ function Header() {
             </a>
           ))}
         </nav>
-        <CTAButton>Shop Now</CTAButton>
+        <div className="flex shrink-0 flex-col items-stretch gap-1.5">
+          <CTAButton className="!min-h-10 !px-3 !py-2 !text-[9px] [&_svg]:hidden sm:!px-4 sm:!text-[11px] sm:[&_svg]:block">
+            Shop Now
+          </CTAButton>
+          <CTAButton
+            href={businessWhatsappHref}
+            className="!min-h-10 !px-3 !py-2 !text-[9px] [&_svg]:hidden sm:!px-4 sm:!text-[11px] sm:[&_svg]:block"
+          >
+            Become a Retail Partner
+          </CTAButton>
+        </div>
       </div>
     </header>
   );
@@ -359,9 +374,6 @@ function Hero() {
             <CTAButton variant="light">Shop Now</CTAButton>
             <CTAButton href={whatsappHref} variant="secondary">
               Message Us on WhatsApp
-            </CTAButton>
-            <CTAButton href={businessWhatsappHref} variant="secondary">
-              Become a Retail Partner
             </CTAButton>
           </div>
           <div className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-4">

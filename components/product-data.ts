@@ -1,8 +1,8 @@
 export const whatsappHref =
-  "https://wa.me/10000000000?text=Hi%2C%20I%27d%20like%20to%20order%20beauty%20products.";
+  "https://wa.me/9779742488804";
 
 export const businessWhatsappHref =
-  "https://wa.me/10000000000?text=Hi%2C%20I%27d%20like%20to%20inquire%20about%20retail%2C%20wholesale%2C%20or%20partnership%20opportunities.";
+  "https://wa.me/9779742488804";
 
 export const productDetails = [
   {
