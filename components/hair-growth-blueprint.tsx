@@ -108,11 +108,13 @@ export function HairGrowthBlueprint() {
   const [concern, setConcern] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [submissionWarning, setSubmissionWarning] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
     setSubmitError("");
+    setSubmissionWarning("");
 
     try {
       const response = await fetch("/api/blueprint-lead", {
@@ -122,14 +124,15 @@ export function HairGrowthBlueprint() {
         },
         body: JSON.stringify({ name, phone, email, concern })
       });
+      const result = (await response.json().catch(() => null)) as
+        | { error?: string; warning?: string }
+        | null;
 
       if (!response.ok) {
-        const result = (await response.json().catch(() => null)) as
-          | { error?: string }
-          | null;
         throw new Error(result?.error || "We could not submit your details.");
       }
 
+      setSubmissionWarning(result?.warning || "");
       setIsUnlocked(true);
       window.requestAnimationFrame(() => {
         document.getElementById("blueprint-content")?.scrollIntoView({
@@ -262,6 +265,14 @@ export function HairGrowthBlueprint() {
         </div>
       ) : (
         <div id="blueprint-content" className="space-y-8">
+          {submissionWarning ? (
+            <p
+              role="status"
+              className="rounded-lg border border-amber-200 bg-amber-50 px-5 py-4 text-center text-sm leading-6 text-amber-800"
+            >
+              {submissionWarning}
+            </p>
+          ) : null}
           <div className="rounded-lg border border-[var(--line)] bg-[var(--pink-soft)] p-7 text-center soft-shadow md:p-10">
             <p className="mx-auto mb-4 inline-flex rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[var(--champagne-dark)]">
               30-Day Hair Growth Blueprint

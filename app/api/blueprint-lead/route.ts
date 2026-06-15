@@ -54,10 +54,12 @@ export async function POST(request: Request) {
       );
       return NextResponse.json(
         {
-          error:
-            "Email delivery is temporarily unavailable. Please try again later."
+          success: true,
+          notificationSent: false,
+          warning:
+            "Your Blueprint is ready, but we could not send the notification email."
         },
-        { status: 503 }
+        { status: 200 }
       );
     }
 
@@ -68,51 +70,65 @@ export async function POST(request: Request) {
       timeZone: "Asia/Kathmandu"
     }).format(submittedAt);
 
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [notificationEmail],
-        reply_to: email,
-        subject: `New Hair Growth Blueprint lead: ${name}`,
-        html: `
-          <h2>New 30-Day Hair Growth Blueprint submission</h2>
-          <table cellpadding="8" cellspacing="0" style="border-collapse:collapse">
-            <tr><td><strong>Full name</strong></td><td>${escapeHtml(name)}</td></tr>
-            <tr><td><strong>Phone or WhatsApp</strong></td><td>${escapeHtml(phone)}</td></tr>
-            <tr><td><strong>Email address</strong></td><td>${escapeHtml(email)}</td></tr>
-            <tr><td><strong>Main hair concern</strong></td><td>${escapeHtml(concern)}</td></tr>
-            <tr><td><strong>Submitted</strong></td><td>${escapeHtml(submittedAtNepal)}</td></tr>
-          </table>
-        `,
-        text: [
-          "New 30-Day Hair Growth Blueprint submission",
-          `Full name: ${name}`,
-          `Phone or WhatsApp: ${phone}`,
-          `Email address: ${email}`,
-          `Main hair concern: ${concern}`,
-          `Submitted: ${submittedAtNepal}`
-        ].join("\n")
-      })
-    });
+    let response: Response;
+
+    try {
+      response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [notificationEmail],
+          reply_to: email,
+          subject: `New Hair Growth Blueprint lead: ${name}`,
+          html: `
+            <h2>New 30-Day Hair Growth Blueprint submission</h2>
+            <table cellpadding="8" cellspacing="0" style="border-collapse:collapse">
+              <tr><td><strong>Full name</strong></td><td>${escapeHtml(name)}</td></tr>
+              <tr><td><strong>Phone or WhatsApp</strong></td><td>${escapeHtml(phone)}</td></tr>
+              <tr><td><strong>Email address</strong></td><td>${escapeHtml(email)}</td></tr>
+              <tr><td><strong>Main hair concern</strong></td><td>${escapeHtml(concern)}</td></tr>
+              <tr><td><strong>Submitted</strong></td><td>${escapeHtml(submittedAtNepal)}</td></tr>
+            </table>
+          `,
+          text: [
+            "New 30-Day Hair Growth Blueprint submission",
+            `Full name: ${name}`,
+            `Phone or WhatsApp: ${phone}`,
+            `Email address: ${email}`,
+            `Main hair concern: ${concern}`,
+            `Submitted: ${submittedAtNepal}`
+          ].join("\n")
+        })
+      });
+    } catch (error) {
+      console.error("Resend blueprint notification request failed:", error);
+      return NextResponse.json({
+        success: true,
+        notificationSent: false,
+        warning:
+          "Your Blueprint is ready, but we could not send the notification email."
+      });
+    }
 
     if (!response.ok) {
       const providerError = await response.text();
       console.error("Resend blueprint notification failed:", providerError);
       return NextResponse.json(
         {
-          error:
-            "We could not send your details. Please check them and try again."
+          success: true,
+          notificationSent: false,
+          warning:
+            "Your Blueprint is ready, but we could not send the notification email."
         },
-        { status: 502 }
+        { status: 200 }
       );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, notificationSent: true });
   } catch (error) {
     console.error("Blueprint lead submission failed:", error);
     return NextResponse.json(
