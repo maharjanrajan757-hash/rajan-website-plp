@@ -1,8 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { productDetails, whatsappHref } from "@/components/product-data";
+import {
+  absoluteUrl,
+  brandName,
+  breadcrumbSchema,
+  homepageDescription,
+  jsonLd,
+  ogImage,
+  productItemListSchema
+} from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{
@@ -16,7 +26,9 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: ProductPageProps) {
+export async function generateMetadata({
+  params
+}: ProductPageProps): Promise<Metadata> {
   const { category } = await params;
   const group = productDetails.find((item) => item.slug === category);
 
@@ -24,9 +36,50 @@ export async function generateMetadata({ params }: ProductPageProps) {
     return {};
   }
 
+  const pageUrl = absoluteUrl(`/products/${group.slug}`);
+  const image = group.items[0]?.image || ogImage;
+  const title =
+    group.slug === "skincare"
+      ? "Skincare Products in Nepal"
+      : "Haircare Products in Nepal";
+  const description =
+    group.slug === "skincare"
+      ? "Shop premium skincare products in Nepal including sunscreen, cleansing milk, serum, papaya sunscreen, and primer foundation from Supriya Glow Care."
+      : "Shop premium haircare products in Nepal including Japanese Rice Water Shampoo, Thai Coconut Hair Mask, and Leito hair treatment from Supriya Glow Care.";
+
   return {
-    title: `${group.title} | GCN Beauty`,
-    description: group.copy
+    title,
+    description,
+    keywords: [
+      brandName,
+      `${group.title} Nepal`,
+      group.slug === "skincare" ? "skincare Nepal" : "haircare Nepal",
+      "beauty products Nepal",
+      ...group.items.map((item) => `${item.name} Nepal`)
+    ],
+    alternates: {
+      canonical: pageUrl
+    },
+    openGraph: {
+      title: `${title} | ${brandName}`,
+      description,
+      url: pageUrl,
+      type: "website",
+      images: [
+        {
+          url: absoluteUrl(image),
+          width: 1200,
+          height: 630,
+          alt: `${group.title} by ${brandName}`
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${brandName}`,
+      description,
+      images: [absoluteUrl(image)]
+    }
   };
 }
 
@@ -38,8 +91,21 @@ export default async function ProductCategoryPage({ params }: ProductPageProps) 
     notFound();
   }
 
+  const pageUrl = absoluteUrl(`/products/${group.slug}`);
+  const schema = [
+    breadcrumbSchema([
+      { name: "Home", url: absoluteUrl("/") },
+      { name: group.title, url: pageUrl }
+    ]),
+    productItemListSchema(group.slug)
+  ];
+
   return (
     <main className="min-h-screen bg-[var(--background)] text-[var(--ink)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(schema) }}
+      />
       <header className="border-b border-[var(--line)] bg-[#fffaf8]/95 backdrop-blur-xl">
         <div className="section-shell flex min-h-24 items-center justify-between gap-4 py-4">
           <Link href="/#products" className="flex items-center gap-3">
@@ -76,7 +142,7 @@ export default async function ProductCategoryPage({ params }: ProductPageProps) 
         </div>
 
         <div className="mt-10 grid gap-7 lg:grid-cols-2">
-          {group.items.map((item) => (
+          {group.items.map((item, index) => (
             <article
               key={item.name}
               className="grid overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--navy)] soft-shadow md:grid-cols-[0.92fr_1.08fr]"
@@ -88,7 +154,7 @@ export default async function ProductCategoryPage({ params }: ProductPageProps) 
                   width={1428}
                   height={2021}
                   sizes="(min-width: 1024px) 20vw, (min-width: 768px) 46vw, 100vw"
-                  loading="eager"
+                  {...(index === 0 ? { priority: true } : { loading: "lazy" as const })}
                   className="h-full min-h-[420px] w-full object-contain object-center"
                 />
               </div>

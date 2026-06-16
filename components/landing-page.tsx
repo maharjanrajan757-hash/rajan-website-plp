@@ -349,7 +349,7 @@ function Hero() {
     <section className="relative min-h-[720px] border-b border-[var(--line)] bg-[var(--cream)] py-20 text-white md:py-28">
       <Image
         src="/images/Gemini_Generated_Image_69putt69putt69pu.png"
-        alt="GCN skincare and haircare products arranged on a blush marble beauty set"
+        alt="Supriya Glow Care skincare and haircare products arranged on a blush marble beauty set"
         width={1920}
         height={1080}
         priority
@@ -523,7 +523,7 @@ function ProductsSection() {
                   alt={product.alt}
                   width={720}
                   height={720}
-                  loading="eager"
+                  loading="lazy"
                   className={`aspect-square rounded-t-lg bg-[var(--pink-soft)] ${
                     isRoutineGuide ? "object-contain p-6 md:p-8" : "object-cover"
                   }`}
