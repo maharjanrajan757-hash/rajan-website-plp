@@ -30,10 +30,10 @@ const trustBadges = [
 ];
 
 const painBullets = [
-  "Why am I still getting acne?",
-  "Why does my hair keep falling?",
-  "Why isn't anything working?",
-  "Why do I keep wasting money?"
+  "❝ \"मेरो अनुहारमा Acne किन निको हुँदैन?\" ❞",
+  "❝ \"मेरो कपाल किन यति धेरै झर्छ?\" ❞",
+  "❝ \"यति धेरै Product प्रयोग गर्दा पनि किन Result आउँदैन?\" ❞",
+  "❝ \"किन म बारम्बार पैसा खर्च गरिरहेकी छु?\" ❞"
 ];
 
 const hiddenReasons = [
@@ -396,19 +396,22 @@ function Hero() {
 function PainSection() {
   return (
     <section className="bg-[var(--black)] py-20 md:py-28">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr]" lang="ne">
         <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--pink)]">
-            The pattern
+            THE PATTERN
           </p>
-          <h2 className="font-display text-4xl font-normal text-[var(--ink)] md:text-5xl">
-            Does This Sound Familiar?
+          <h2 className="font-display text-4xl font-normal leading-tight text-[var(--ink)] md:text-5xl">
+            बारम्बार यही समस्या दोहोरिँदै छ?
           </h2>
           <div className="mt-6 space-y-4 text-base leading-8 text-[var(--muted)]">
-            <p>You&apos;ve tried different skincare and haircare products.</p>
-            <p>You&apos;ve watched countless Instagram reels and YouTube videos.</p>
-            <p>You&apos;ve taken advice from friends, influencers, and beauty pages.</p>
-            <p>Yet you&apos;re still asking yourself:</p>
+            <p>तपाईंले धेरै प्रकारका Skincare र Haircare Products प्रयोग गर्नुभयो।</p>
+            <p>धेरै Instagram Reels, Facebook Videos, र YouTube हेर्नुभयो।</p>
+            <p>
+              साथीभाइ, परिवार, Influencer र Beauty Page बाट धेरै सुझाव पनि
+              लिनुभयो।
+            </p>
+            <p>तर आज पनि तपाईं आफैलाई यही प्रश्न सोधिरहनुभएको छ...</p>
           </div>
         </div>
         <div className="rounded-lg border border-[var(--line)] bg-[var(--pink-soft)] p-6 soft-shadow md:p-8">
@@ -416,16 +419,23 @@ function PainSection() {
             {painBullets.map((item) => (
               <div
                 key={item}
-                className="rounded-lg border border-[var(--line)] bg-[var(--navy)] p-5 font-display text-xl font-normal leading-7 text-[var(--gold-soft)]"
+                className="rounded-lg border border-[var(--line)] bg-[var(--navy)] p-5 text-lg font-medium leading-8 text-[var(--gold-soft)]"
               >
-                &quot;{item}&quot;
+                {item}
               </div>
             ))}
           </div>
           <p className="mt-6 rounded-lg bg-[var(--champagne-dark)] p-6 text-base leading-7 text-white">
-            You are not the problem. The real problem is that most products are
-            generic, confusing, and not designed to help you build a consistent
-            routine.
+            समस्या तपाईंमा होइन।
+            <br />
+            <br />
+            धेरै Products सबैका लागि एउटै तरिकाले बनाइएका हुन्छन्। त्यसैले
+            तिनीहरूले तपाईंको Skin र Hair को वास्तविक आवश्यकता पूरा गर्न
+            सक्दैनन्।
+            <br />
+            <br />
+            सही Routine, सही Products, र नियमित Care नै स्वस्थ, चम्किलो र
+            बलियो कपाल तथा छालाको आधार हो।
           </p>
         </div>
       </div>
