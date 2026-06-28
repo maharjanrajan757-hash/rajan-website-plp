@@ -87,3 +87,19 @@ img {
   background: var(--cream);
   color: var(--champagne-dark) !important;
 }
+
+.hero-product-slide {
+  animation: hero-product-in 620ms ease both;
+}
+
+@keyframes hero-product-in {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}

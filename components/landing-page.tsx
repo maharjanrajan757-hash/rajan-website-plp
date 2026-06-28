@@ -11,6 +11,7 @@ import {
   Star,
   WandSparkles
 } from "lucide-react";
+import { HeroProductCarousel } from "@/components/hero-product-carousel";
 import { businessWhatsappHref, whatsappHref } from "@/components/product-data";
 
 const navItems = [
@@ -346,47 +347,48 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[720px] border-b border-[var(--line)] bg-[var(--cream)] py-20 text-white md:py-28">
-      <Image
-        src="/images/Gemini_Generated_Image_69putt69putt69pu.png"
-        alt="Supriya Glow Care skincare and haircare products arranged on a blush marble beauty set"
-        width={1920}
-        height={1080}
-        priority
-        className="absolute inset-0 h-full w-full object-cover object-[72%_center] md:object-center"
-      />
-      <div className="absolute inset-0 bg-[#3a2328]/48 md:bg-gradient-to-r md:from-[#3a2328]/58 md:via-[#8f4654]/28 md:to-[#fff5ed]/6" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(243,203,209,0.24),transparent_34%)]" />
-      <div className="section-shell relative grid min-h-[560px] items-center">
-        <div className="max-w-4xl">
-          <p className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-white">
+    <section className="relative overflow-hidden border-b border-[var(--line)] bg-[linear-gradient(135deg,#fffaf8_0%,#fff3eb_46%,#f8ded7_100%)] py-10 text-[var(--ink)] md:py-20">
+      <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.76),rgba(255,250,248,0.52)_48%,rgba(183,110,121,0.12))]" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(90deg,transparent,rgba(212,166,182,0.25),transparent)]" />
+      <div className="section-shell relative grid min-h-[680px] items-center gap-10 lg:grid-cols-[0.98fr_1.02fr]">
+        <div className="order-2 max-w-3xl lg:order-1">
+          <p className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--champagne-dark)]">
             <ShieldCheck aria-hidden="true" size={16} />
             Premium care for everyday confidence
           </p>
-          <h1 className="font-display max-w-5xl text-5xl font-normal leading-[1.05] text-white md:text-7xl">
+          <h1 className="font-display max-w-5xl text-5xl font-normal leading-[1.05] text-[var(--ink)] md:text-7xl">
             Finally Get Healthier Skin & Stronger Hair Without Wasting Money on Products That Don&apos;t Work
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-white/90">
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--muted)]">
             Build a simple skin and hair care routine that supports
             healthier-looking skin, stronger hair, and everyday confidence.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton variant="light">Shop Now</CTAButton>
-            <CTAButton href={whatsappHref} variant="secondary">
+            <CTAButton className="w-full sm:w-auto">Shop Now</CTAButton>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-[var(--champagne-dark)] bg-white/55 px-7 py-3 text-xs font-bold uppercase tracking-[0.08em] text-[var(--champagne-dark)] shadow-lg shadow-rose-900/5 transition hover:bg-[var(--champagne-dark)] hover:text-white sm:w-auto"
+            >
               Message Us on WhatsApp
-            </CTAButton>
+              <ArrowRight aria-hidden="true" size={16} />
+            </a>
           </div>
           <div className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {trustBadges.map((badge) => (
               <div
                 key={badge}
-                className="flex items-center gap-3 rounded-lg border border-white/40 bg-white/15 px-4 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur"
+                className="flex items-center gap-3 rounded-lg border border-white/70 bg-white/55 px-4 py-3 text-xs font-bold uppercase tracking-[0.08em] text-[var(--ink)] shadow-sm shadow-rose-900/5 backdrop-blur"
               >
                 <Check aria-hidden="true" size={15} className="text-[var(--pink)]" />
                 {badge}
               </div>
             ))}
           </div>
+        </div>
+        <div className="order-1 lg:order-2">
+          <HeroProductCarousel />
         </div>
       </div>
     </section>
