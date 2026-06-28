@@ -59,7 +59,7 @@ const products = [
     alt: "Gold Cleansing Milk skincare product",
     description:
       "Browse cleansers, sunscreen, gel, and coverage products for daily skin care.",
-    price: "6 products available",
+    price: "9 products available",
     detailHref: "/products/skincare"
   },
   {
@@ -68,7 +68,7 @@ const products = [
     alt: "Rice Water shampoo and hair mask haircare products",
     description:
       "Explore hair nourishment and routine support products for stronger-looking hair.",
-    price: "2 products available",
+    price: "3 products available",
     detailHref: "/products/haircare"
   },
   {

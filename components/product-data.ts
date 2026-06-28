@@ -72,6 +72,45 @@ export const productDetails = [
           "Oil-free moisturizing formula",
           "Water and sweat resistant"
         ]
+      },
+      {
+        name: "MG Goldline Vitamin E Soft Cream",
+        image: "/images/Skin Product 3.JPG",
+        alt: "MG Goldline Vitamin E 24 hour moisture soft cream product",
+        price: "Rs. 580",
+        description:
+          "A 24-hour moisture soft cream with Vitamin E for soft, glowing skin and daily nourishment.",
+        details: [
+          "100% natural care",
+          "24-hour moisture support",
+          "Safe for all skin types"
+        ]
+      },
+      {
+        name: "Leito Brightening & Moisturizing Cream SPF 35",
+        image: "/images/Skin Product1.JPG",
+        alt: "Leito dermatologist tested brightening and moisturizing cream SPF 35",
+        price: "Rs. 980",
+        description:
+          "A dermatologist-tested brightening and moisturizing cream with SPF 35 for refreshed daily skin care.",
+        details: [
+          "Dermatologist tested",
+          "Brightening and moisturizing cream",
+          "SPF 35 daily protection"
+        ]
+      },
+      {
+        name: "Leito Milk Protein Body Lotion SPF 25+",
+        image: "/images/Skin Product 2.JPG",
+        alt: "Leito Milk Protein perfume based body lotion SPF 25 plus",
+        price: "Rs. 790 / 400ML",
+        description:
+          "A perfume-based body lotion with milk protein, natural nutrients, and SPF 25+ for all skin types.",
+        details: [
+          "Deep moisturizing",
+          "Natural nutrients",
+          "SPF 25+ protection"
+        ]
       }
     ]
   },
@@ -101,6 +140,19 @@ export const productDetails = [
           "Deep repair and protection",
           "Intense moisture and shine",
           "Silky, soft, and smooth"
+        ]
+      },
+      {
+        name: "MG Goldline Vitamin E Hair Tonic",
+        image: "/images/Hair Procudt 1.JPG",
+        alt: "MG Goldline Vitamin E anti hair fall hair tonic 200ML",
+        price: "Rs. 700 / 200ML",
+        description:
+          "An anti-hair-fall hair tonic and scalp conditioner with Vitamin E for daily hair care support.",
+        details: [
+          "Anti hair fall support",
+          "Scalp conditioning care",
+          "Vitamin E nourishment"
         ]
       }
     ]
