@@ -116,8 +116,8 @@ export function HeroProductCarousel() {
           >
             <ChevronLeft aria-hidden="true" size={18} />
           </button>
-          <div className="min-w-0 text-center">
-            <p className="truncate text-xs font-bold uppercase tracking-[0.14em] text-[var(--champagne-dark)]">
+          <div className="min-w-0 flex-1 px-1 text-center">
+            <p className="text-balance text-xs font-bold uppercase leading-5 tracking-[0.12em] text-[var(--champagne-dark)] sm:tracking-[0.14em]">
               {activeProduct.name}
             </p>
             <p className="mt-1 text-xs text-[var(--muted)]">
