@@ -64,6 +64,81 @@ const heroProducts = [
     name: "Botox Hair Treatment",
     image: "/images/Gemini_Generated_Image_dhc7y3dhc7y3dhc7.png",
     alt: "Leito Botox shampoo and Botox hair treatment product set"
+  },
+  {
+    name: "Dental Flosser",
+    image: "/images/hero-slider-products/product-20.png",
+    alt: "Dental flosser product poster"
+  },
+  {
+    name: "Luxury Lip Gloss",
+    image: "/images/hero-slider-products/product-21.png",
+    alt: "Luxury lip gloss premium finish product poster"
+  },
+  {
+    name: "Chamomile Skin Care Serum",
+    image: "/images/hero-slider-products/product-22.png",
+    alt: "Chamomile skin care serum product poster"
+  },
+  {
+    name: "Milk Body Lotion",
+    image: "/images/hero-slider-products/product-23.png",
+    alt: "Milk body lotion premium body care product poster"
+  },
+  {
+    name: "Cosmetic Lip Liner",
+    image: "/images/hero-slider-products/product-24.png",
+    alt: "Cosmetic lip liner product poster"
+  },
+  {
+    name: "Leito 4-in-1 Cream",
+    image: "/images/hero-slider-products/product-25.png",
+    alt: "Leito four in one cream product poster"
+  },
+  {
+    name: "Premium Skin Care Set",
+    image: "/images/hero-slider-products/product-26.png",
+    alt: "Premium skin care set product poster"
+  },
+  {
+    name: "Salicylic Acid Shower Gel",
+    image: "/images/hero-slider-products/product-9.png",
+    alt: "Salicylic acid shower gel 500ML product poster"
+  },
+  {
+    name: "Anti-Wrinkle Skin Care Set",
+    image: "/images/hero-slider-products/product-10.png",
+    alt: "Anti-wrinkle skin care cream set product poster"
+  },
+  {
+    name: "Green Skin Care Routine Set",
+    image: "/images/hero-slider-products/product-11.png",
+    alt: "Green skin care routine set product poster"
+  },
+  {
+    name: "Premium Body Scrub",
+    image: "/images/hero-slider-products/product-12.png",
+    alt: "Premium body scrub product poster"
+  },
+  {
+    name: "Bifennia Body Wash",
+    image: "/images/hero-slider-products/product-13.png",
+    alt: "Bifennia body wash 750ML product poster"
+  },
+  {
+    name: "Vitamin E Hair Tonic",
+    image: "/images/hero-slider-products/product-14.png",
+    alt: "MG Goldline Vitamin E hair tonic product poster"
+  },
+  {
+    name: "Snail Liquid Moisturizing Cream",
+    image: "/images/hero-slider-products/product-17.png",
+    alt: "Snail liquid moisturizing anti-wrinkle day cream product poster"
+  },
+  {
+    name: "Keratin Smooth Hair Treatment",
+    image: "/images/hero-slider-products/product-19.png",
+    alt: "Keratin smooth hair treatment product poster"
   }
 ];
 
